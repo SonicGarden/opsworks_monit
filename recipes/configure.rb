@@ -1,6 +1,6 @@
 node[:deploy].each do |application, deploy|
 
-  template "#{node[:monit][:includes_dir]}/mail_setting" do
+  template "#{node[:monit][:includes_dir]}/mail_setting.monitrc" do
     source "mail_setting.erb"
     mode 0440
     owner 'root'
@@ -9,7 +9,7 @@ node[:deploy].each do |application, deploy|
     notifies :restart, "service[monit]", :immediately
   end
 
-  template "#{node[:monit][:includes_dir]}/system" do
+  template "#{node[:monit][:includes_dir]}/system.monitrc" do
     source "system.erb"
     mode 0440
     owner 'root'
