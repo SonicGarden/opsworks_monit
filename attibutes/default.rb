@@ -6,8 +6,8 @@ default[:monit] = {
     port: 25
   },
   notification: {
-    from: 'support+opsworks@sonicgarden.jp',
-    to: 'infra@sonicgarden.jp'
+    from: 'from@example.com',
+    to: 'to@example.com'
   }
 }
 
