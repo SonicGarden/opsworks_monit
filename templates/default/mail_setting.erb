@@ -8,5 +8,7 @@ set mailserver <%= @monit[:smpt][:address] %> port <%= @monit[:smpt][:port] %>
   set mail-format {
     from: <%= @monit[:notification][:from] %>
     subject: [$HOST] $SERVICE $EVENT at $DATE
-    message: Monit $ACTION $SERVICE at $DATE on $HOST.
+    message: $DESCRIPTION
+      Monit $ACTION $SERVICE
+      at $DATE on $HOST.
   }
