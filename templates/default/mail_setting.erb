@@ -1,0 +1,12 @@
+set alert <%= @monit[:notification][:to] %> on { timeout, nonexist, resource }
+
+set mailserver <%= @monit[:smpt][:address] %> port <%= @monit[:smpt][:port] %>
+  username <%= @monit[:smpt][:username] %> password <%= @monit[:smpt][:password] %>
+  using tlsv1
+  with timeout 30 seconds
+
+  set mail-format {
+    from: <%= @monit[:notification][:from] %>
+    subject: [$HOST] $SERVICE $EVENT at $DATE
+    message: Monit $ACTION $SERVICE at $DATE on $HOST.
+  }

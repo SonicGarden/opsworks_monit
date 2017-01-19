@@ -1,0 +1,7 @@
+check system localhost
+  if loadavg (5min) > 3 then alert
+
+# for OS layer
+check device datafs-os with path /dev/xvda1
+  if space usage > 80% then alert
+  if inode usage > 90% then alert
