@@ -1,6 +1,6 @@
 check system localhost
   if loadavg (5min) > 2 then alert
-  if swap usage > 30% then alert
+  if swap usage > 60% then alert
 
 # for OS layer
 check device datafs-os with path /dev/xvda1
